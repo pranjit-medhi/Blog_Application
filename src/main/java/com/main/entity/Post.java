@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 @Entity
@@ -28,6 +29,9 @@ public class Post {
     private Category category;
     @ManyToOne
     private User user;
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private ArrayList<Comment> comments = new ArrayList<>();
+
 
 
 }
